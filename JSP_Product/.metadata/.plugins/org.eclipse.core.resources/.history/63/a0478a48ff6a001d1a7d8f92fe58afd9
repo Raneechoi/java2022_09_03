@@ -1,0 +1,16 @@
+package repository;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+
+public class ProductDAO implements DAO {
+	   private Connection conn;
+	   private PreparedStatement pst;
+	   private String query="";
+	   
+	   public ProductDAO() {
+	      DatabaseConnector dbc=DatabaseConnector.getInstance();
+	      conn=dbc.getConnection();
+	   }
+
+}

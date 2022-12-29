@@ -1,0 +1,19 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Join</title>
+</head>
+<body>
+   <h1>Join Page</h1>
+   <form action="/mem/register" method="post">
+      EMAIL: <input type="text" name="email"> <br>
+      PASSWORD: <input type="text" name="pwd"> <br>
+      NICKNAME: <input type="text" name="nick_name"> <br>
+      <button type="submit">SIGN UP</button>
+   </form>
+   <a href="/"><button type="button">취소</button></a>
+</body>
+</html>

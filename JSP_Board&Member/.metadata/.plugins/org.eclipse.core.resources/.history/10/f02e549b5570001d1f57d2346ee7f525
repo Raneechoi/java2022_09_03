@@ -1,0 +1,24 @@
+package domain;
+
+public class MemberVO {
+	
+	private String email;
+	private String pwd;
+	private String nick_name;
+	private String reg_at;
+	private String last_login;
+	
+	public MemberVO() {}
+	
+	//login : email, pwd
+	
+	
+	// list : email, pwd, nick_name
+	
+	
+	
+	// join : email, pwd, nick_name, reg_at
+	
+	
+
+}

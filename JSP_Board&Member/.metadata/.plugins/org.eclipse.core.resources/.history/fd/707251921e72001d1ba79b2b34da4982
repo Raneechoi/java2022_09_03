@@ -1,0 +1,52 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<table border="1">
+		<tr>
+			<th>BNO</th>
+			<td>${bvo.bno }</td>
+		</tr>
+		<tr>			
+			<th>TITLE</th>
+			<td>${bvo.title }</td>
+		</tr>
+		<tr>
+			<th>WRITER</th>
+			<td>${bvo.writer }</td>
+		</tr>
+		<tr>
+			<th>CONTENT</th>
+			<td>${bvo.content }</td>
+		</tr>
+		<tr>
+			<th>REG_DATE</th>
+			<td>${bvo.reg_date }</td>
+		</tr>
+		<tr>
+			<th>READ_COUNT</th>	
+			<td>${bvo.read_count }</td>
+		</tr>
+	</table>
+	<div>
+		comment line
+		<form action="/cmt/post" >
+			<input type="text" id="cmdWriter" value="${ses.email }"> <br>
+		</form>
+	</div>
+	
+	<c:if test="${ses.email eq bvo.writer}">
+		<a href="/bor/modify?bno=${bvo.bno }"><button type="submit">수정</button></a>
+		<a href="/bor/remove?bno=${bvo.bno }"><button type="submit">삭제</button></a>		
+	</c:if>
+	
+	<a href="/bor/list"><button type="button">목록</button></a>
+	
+</body>
+</html>

@@ -1,0 +1,123 @@
+package controller;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.List;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.swing.text.html.HTMLEditorKit.Parser;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.mysql.cj.xdevapi.JsonArray;
+
+import domain.CommentVO;
+import service.CommentService;
+import service.CommentServiceImpl;
+
+@WebServlet("/cmt/*")
+public class CommentController extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	private static final Logger log = LoggerFactory.getLogger(MemberController.class);
+	private CommentService csv;
+	private int isOK;
+
+    public CommentController() {
+        csv = new CommentServiceImpl();
+    }
+
+
+	protected void service(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+		req.setCharacterEncoding("UTF-8");
+		res.setCharacterEncoding("UTF-8");
+		
+		String uri = req.getRequestURI();  ///cmt/list/10(bno)
+		String pathUri = uri.substring("/cmt/".length());
+		String path = pathUri;
+		String pathVar = "";
+		if(pathUri.contains("/")) {
+			path = pathUri.substring(0, pathUri.lastIndexOf("/"));  // list
+			pathVar = pathUri.substring(pathUri.lastIndexOf("/")+1);  // 10			
+		}
+		log.info("uri>>>  "+uri);
+		log.info("pathUri>>>  "+ pathUri);
+		log.info("path>>>  "+path);
+		log.info("pathVar>>>  "+pathVar);
+		
+		switch (path) {
+		case "post":
+			try {
+				// js에서 보낸 데이터를 StringBuffer로 읽어들이는 작업.
+				StringBuffer sb = new StringBuffer();
+				String line = null;
+				BufferedReader br = req.getReader();  // 댓글객체
+				while((line = br.readLine())!= null) {  // 값이 null이 아니라면(값이 남아있다면)
+					sb.append(line);
+				}
+				log.info(">>> sb : "+sb.toString());
+				// 객체로 생성을 해야함
+				JSONParser parser = new JSONParser();
+				JSONObject jsonObj = (JSONObject)parser.parse(sb.toString());  // (key = value)형식으로 가지고있음
+				
+				int bno = Integer.parseInt(jsonObj.get("bno").toString());  // return object
+				String writer = jsonObj.get("writer").toString();
+				String content = jsonObj.get("content").toString();
+				isOK = csv.post(new CommentVO(bno, writer, content));
+				log.info(isOK > 0 ? "OK":"fail");
+				// 화면에 출력
+				PrintWriter out = res.getWriter();
+				out.print(isOK);
+				
+			} catch (Exception e) {
+				log.info(">>> Comment > post > error");
+				e.printStackTrace();
+			}
+			break;
+			
+		case "list":
+			try {
+				List<CommentVO> list = csv.getList(Integer.parseInt(pathVar));
+				log.info(">>> Comment > list > DB OK");
+				// json 형태로 변환
+				JSONObject[] jsonObjArr = new JSONObject[list.size()];
+				JSONArray jsonObjList = new JSONArray();
+				
+				for(int i=0; i<list.size(); i++) {
+					jsonObjArr[i] = new JSONObject();  // (key:value) 형태
+					jsonObjArr[i].put("cno", list.get(i).getCno());  // (cno : 값)
+					jsonObjArr[i].put("bno", list.get(i).getBno());
+					jsonObjArr[i].put("writer", list.get(i).getWriter());
+					jsonObjArr[i].put("content", list.get(i).getContent());
+					jsonObjArr[i].put("reg_at", list.get(i).getReg_at());
+					
+					jsonObjList.add(jsonObjArr[i]);
+				}
+				
+			} catch (Exception e) {
+				log.info(">>> Comment > list > error");
+				e.printStackTrace();
+			}
+			break;
+		}
+	}
+
+
+	protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+		service(req, res);
+	}
+
+
+	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+		service(req, res);
+	}
+
+}

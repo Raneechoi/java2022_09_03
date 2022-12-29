@@ -1,0 +1,24 @@
+package domain;
+
+public class CommentVO {
+	
+	private int cno;
+	private int bno;
+	private String writer;
+	private String content;
+	private String reg_at;
+
+	public CommentVO() { }
+	
+	// post
+	public CommentVO(int cno, int bno, String writer, String content, String reg_st) {
+		this.cno = cno;
+		this.bno = bno;
+	}
+	
+	
+	// list
+	
+	
+	// modify
+}

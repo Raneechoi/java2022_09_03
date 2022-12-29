@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="MemberMapper">
+
+	<select id="login" parameterType="mvo" resultType="mvo">
+		select * from member2 where email = #{email} and pwd = #{pwd}
+	</select>
+	
+	<insert id="reg" parameterType="mvo">
+		insert into member2 (email, pwd, nick_name)
+		values (#{email}, #{pwd}, #{nick_name})
+	</insert>
+	
+	<update id="last" parameterType="String">
+		update member2 set last_login = now() where email = #{email}
+	</update>
+	
+	<select id="list" resultType="mvo">
+		select * from member2
+	</select>
+	
+	<update id="modify" parameterType="mvo">
+		update member2 set pwd=#{pwd}, nick_name=#{nick_name} where email = #{email}
+	</update>
+	
+	<select id="getOne" parameterType="String" resultType="mvo">
+		select * from member2 where email = #{email}
+	</select>
+
+
+</mapper>

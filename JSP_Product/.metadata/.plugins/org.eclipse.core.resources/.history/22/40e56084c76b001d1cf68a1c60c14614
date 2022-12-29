@@ -1,0 +1,143 @@
+package controller;
+
+import java.io.IOException;
+import java.util.List;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import domain.ProductVO;
+import service.ProductService;
+import service.Service;
+
+public class ProductController extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	//   상품 등록, 상품 리스트, 상품 상세, 상품 수정, 상품 삭제
+	//   데이터베이스 연동한 후 컨트롤러에서 메뉴를 분기처리
+	//   컨트롤러에서 서비스 부분으로 값을 전달, 서비스는 다오로 값을 전달
+	private Service svc;
+
+    public ProductController() {
+        // TODO Auto-generated constructor stub
+    	svc=new ProductService();
+    }
+
+	protected void service(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+	      //모든 처리는 service에서 처리
+	      req.setCharacterEncoding("utf-8");
+	      res.setCharacterEncoding("utf-8");
+	      res.setContentType("text/html; charset=UTF-8");
+	      
+	      //uri: 내가 원하는 전체 요청 경로(정보 모두 포함), url보다 넓은 개념
+	      String uri = req.getRequestURI();
+	      System.out.println(">>>>uri"+uri);
+	      
+	      String context=req.getContextPath();
+	      System.out.println(">>>>context"+context);
+	      
+	      //uri에서 요청하는 구문만 잘라내기 register, list
+	      String path=uri.substring(uri.lastIndexOf('/')+1);
+	      System.out.println(path);
+	      
+//	      if문 사용
+//	      if(path.equals("register.pd")) {
+//	         
+//	      }else if(path.equals("list.pd")){
+	      
+//	      }
+	      String destPage=""; //내가 가야하는 페이지(요청에 대한 응답을 싣고 가야 하는 경로)
+	      
+	      switch(path) {
+	      case "register.pd":
+//	         등록할 페이지로 이동(실제 등록 X, 실제 등록은 해당 페이지에서 등록 버튼을 눌렀을 때 처리됨)
+//	         내가 원하는 경로로 응답을 보내줘야함
+	         destPage="/product/register.jsp";
+	         break;
+	      case "insert.pd":
+	    	  // insert 작업을 하기위한 case
+	    	  // service에서 필요한 pvo로 만들어서 service에게 호출(전달)
+	    	  try {
+	    		  ProductVO pvo = new ProductVO();
+	    		  pvo.setPname(req.getParameter("pname"));
+	    		  pvo.setPrice(Integer.parseInt(req.getParameter("price")));
+	    		  pvo.setMadeby(req.getParameter("madeby"));
+	    		  int isOk = svc.register(pvo);
+	    		  System.out.println(isOk > 0 ? "등록 성공":"실패");
+	    		  destPage = "list.pd";
+	    		  
+	    	  } catch (Exception e) {
+	    		  System.out.println("요청이 올바르지 않습니다.");
+	    		  e.printStackTrace();
+	    	  }
+	    	  break;
+	    	  
+	      case "list.pd": 
+	    	  try {
+	    		  List<ProductVO> list = svc.list();
+	    		  req.setAttribute("list", list);
+	    		  destPage = "/product/list.jsp";
+				
+			} catch (Exception e) {
+				// TODO: handle exception
+				System.out.println("요청이 올바르지 않습니다.");
+	    		e.printStackTrace();
+			}
+	         break;
+	         
+	      case "detail.pd":
+	    	  try {
+	    		  int pno = Integer.parseInt(req.getParameter("pno"));
+	    		  ProductVO pvo = svc.detail(pno);
+	    		  req.setAttribute("pvo", pvo);
+	    		  destPage="/product/detail.jsp";
+				
+			} catch (Exception e) {
+				// TODO: handle exception
+				System.out.println("요청이 올바르지 않습니다.");
+	    		e.printStackTrace();
+			}
+	    	  break;
+	    	  
+	      case "edit.pd":
+	    	  try {
+	    		  int pno = Integer.parseInt(req.getParameter("pno"));
+	    		  ProductVO pvo = svc.detail(pno);
+	    		  req.setAttribute("pvo", pvo);
+	    		  destPage= "/product/edit.jsp";
+				
+			} catch (Exception e) {
+				// TODO: handle exception
+				System.out.println("요청이 올바르지 않습니다.");
+	    		e.printStackTrace();
+			}
+	    	  break;
+	    	  
+	      case "modify.pd":
+	    	  break;
+	      }
+	      
+	      //요청한 값을 원하는 곳에 보ㄴㅐ주는 역할
+	      RequestDispatcher rdp=req.getRequestDispatcher(destPage);
+	      //req가 온 곳에 res 싣고 감 ,, 뭔소린지
+	      rdp.forward(req, res);
+
+	      
+	}
+
+	protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		service(req,res);
+	}
+
+	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		service(req, res);
+
+	}
+
+}

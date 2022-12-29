@@ -1,0 +1,12 @@
+package service;
+
+import repository.dao;
+
+public class ProductService implements Service {
+	private DAO dao;
+	  
+	public ProductService() {
+		  dao=new ProductDAO(); //클래스 생성, repository 패키지
+	  }
+
+}

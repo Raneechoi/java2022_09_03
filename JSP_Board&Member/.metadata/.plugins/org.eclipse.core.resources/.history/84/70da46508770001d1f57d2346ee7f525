@@ -1,0 +1,19 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<form action="/mem/update" method="post">
+	EMAIL : <input type="text" name="email" value="${ses.email }">
+	PASSWORD : <input type="text" name="pwd" value="${ses.pwd }">
+	NICK_NAME : <input type="text" name="nick_name" value="${ses.nick_name }" >
+	<button type="submit">수정</button>
+</form>
+
+</body>
+</html>

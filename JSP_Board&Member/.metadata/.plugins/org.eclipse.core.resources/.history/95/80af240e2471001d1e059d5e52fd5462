@@ -1,0 +1,50 @@
+package repository;
+
+import java.util.List;
+
+import org.apache.ibatis.session.SqlSession;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import domain.BoardVO;
+import orm.DatabaseBuilder;
+
+public class BoardDAOImpl implements BoardDAO {
+	private static final Logger log = LoggerFactory.getLogger(MemberDAOImpl.class);
+	private SqlSession sql;
+	private final String NS = "BoardMapper.";
+	
+	public BoardDAOImpl() {
+		new DatabaseBuilder();
+		sql = DatabaseBuilder.getFactory().openSession();
+	}
+
+	@Override
+	public List<BoardVO> listall() {
+		log.info("list check 3");
+		return sql.selectList(NS+"list");
+	}
+
+	@Override
+	public int insert(BoardVO bvo) {
+		log.info("register check 3");
+		int isOK = sql.insert(NS+"add",bvo);
+		if(isOK > 0) sql.commit();
+		return isOK;
+	}
+
+	@Override
+	public BoardVO selectOne(int bno) {
+		log.info("selectOne check 3");
+		return sql.selectOne(NS+"selectOne",bno);
+	}
+
+	@Override
+	public int update(BoardVO bvo) {
+		log.info("update check 3");
+		return isOK;
+	}
+
+
+
+}

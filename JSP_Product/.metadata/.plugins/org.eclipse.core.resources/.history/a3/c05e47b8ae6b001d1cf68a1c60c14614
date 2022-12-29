@@ -1,0 +1,36 @@
+package service;
+
+import java.util.List;
+
+import domain.ProductVO;
+import repository.DAO;
+import repository.ProductDAO;
+
+public class ProductService implements Service {
+	private DAO dao;
+	  
+	public ProductService() {
+		  dao=new ProductDAO(); //클래스 생성, repository 패키지
+	  }
+
+	@Override
+	public int register(ProductVO pvo) {
+		// TODO Auto-generated method stub
+		System.out.println("등록 service 진입 성공!");
+		return dao.insert(pvo);
+	}
+
+	@Override
+	public List<ProductVO> list() {
+		// TODO Auto-generated method stub
+		System.out.println("list service 진입 성공!");
+		return dao.selectList();
+	}
+
+	@Override
+	public ProductVO detail(int pno) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

@@ -1,0 +1,29 @@
+package domain;
+
+public class BoardVO {
+	
+	private int bno;
+	private String title;
+	private String writer;
+	private String content;
+	private String reg_date;
+	private int read_date;
+	
+	public BoardVO() {}
+	
+	// insert(title, writer, content)
+	public BoardVO(String title, String writer, String content) {
+		this.title = title;
+		this.writer = writer;
+		this.content = content;
+	}
+	
+	
+	// list(bno, title, writer, reg_date, read_count)
+	
+	
+	// detail (all)
+
+	
+	// update(bno, title, content)
+}

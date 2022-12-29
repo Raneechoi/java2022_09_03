@@ -1,0 +1,93 @@
+package repository;
+
+import java.util.List;
+
+import org.apache.ibatis.session.SqlSession;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import domain.BoardVO;
+import domain.PagingVO;
+import orm.DatabaseBuilder;
+
+public class BoardDAOImpl implements BoardDAO {
+	private static final Logger log = LoggerFactory.getLogger(MemberDAOImpl.class);
+	private SqlSession sql;
+	private final String NS = "BoardMapper.";
+	
+	public BoardDAOImpl() {
+		new DatabaseBuilder();
+		sql = DatabaseBuilder.getFactory().openSession();
+	}
+
+	@Override
+	public List<BoardVO> listall() {
+		log.info("list check 3");
+		return sql.selectList(NS+"list");
+	}
+
+	@Override
+	public int insert(BoardVO bvo) {
+		log.info("register check 3");
+		int isOK = sql.insert(NS+"add",bvo);
+		if(isOK > 0) sql.commit();
+		return isOK;
+	}
+
+	@Override
+	public BoardVO selectOne(int bno) {
+		log.info("selectOne check 3");
+		return sql.selectOne(NS+"selectOne",bno);
+	}
+
+	@Override
+	public int update(BoardVO bvo) {
+		log.info("update check 3");
+		int isOK = sql.update(NS+"up",bvo);
+		if(isOK > 0) sql.commit();
+		return isOK;
+	}
+
+	@Override
+	public int remove(int bno) {
+		log.info("remove check 3");
+		int isOK = sql.delete(NS+"remove",bno);
+		if(isOK > 0) sql.commit();
+		return isOK;
+	}
+
+	@Override
+	public int countOne(BoardVO bvo) {
+		log.info("count check 3");
+		bvo.setRead_count(bvo.getRead_count()+1);
+		int isOK = sql.update(NS+"count",bvo);
+		if(isOK > 0) sql.commit();
+		return isOK;
+	}
+
+	@Override
+	public int selectCount() {
+		return sql.selectOne(NS+"cnt");
+	}
+
+	@Override
+	public List<BoardVO> selectList(PagingVO pgvo) {
+		return sql.selectList(NS+"pagingList", pgvo);
+	}
+
+	@Override
+	public List<BoardVO> mylist(String email) {
+		// TODO Auto-generated method stub
+		return sql.selectList(NS+"mylist", email);
+	}
+
+	@Override
+	public String selectimageFile(int bno) {
+		int isOK = sql.selectOne(NS+"imgFile", bno);
+		if(isOK > 0) sql.commit();
+		return isOK;
+	}
+
+
+
+}

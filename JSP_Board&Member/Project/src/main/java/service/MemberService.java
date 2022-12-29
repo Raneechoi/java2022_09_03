@@ -1,0 +1,25 @@
+package service;
+
+import java.util.List;
+
+import domain.MemberVO;
+
+public interface MemberService {
+
+	MemberVO login(MemberVO mvo);
+
+	int register(MemberVO memberVO);
+
+	int lastLogin(String email);
+
+	List<MemberVO> getlist();
+
+	int modify(MemberVO mvo);
+
+	MemberVO selectOne(String email);
+
+	int update(MemberVO mvo);
+
+	int remove(String email);
+
+}

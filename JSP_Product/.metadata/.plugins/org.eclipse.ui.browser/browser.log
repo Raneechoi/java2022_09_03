@@ -1,0 +1,68 @@
+
+11월 23, 2022 13:16:41.108 NEW SESSION
+11월 23, 2022 13:16:41.108 [15420:8132:1123/131641.107:ERROR:device_event_log_impl.cc(215)] [13:16:41.107] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+11월 23, 2022 13:16:41.109 [15420:8132:1123/131641.107:ERROR:device_event_log_impl.cc(215)] [13:16:41.107] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+11월 23, 2022 13:17:38.992 [15420:12400:1123/131738.992:ERROR:util.cc(129)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+11월 23, 2022 14:20:45.503 [15420:3680:1123/142045.503:ERROR:connection_factory_impl.cc(426)] Failed to connect to MCS endpoint with error -7
+11월 23, 2022 16:50:18.649 [9860:20172:1123/165018.648:ERROR:device_event_log_impl.cc(215)] [16:50:18.648] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+11월 23, 2022 16:50:18.649 [9860:20172:1123/165018.649:ERROR:device_event_log_impl.cc(215)] [16:50:18.648] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+11월 23, 2022 16:51:16.298 [9860:4132:1123/165116.296:ERROR:util.cc(129)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+11월 23, 2022 16:53:40.113 [17384:11140:1123/165340.112:ERROR:device_event_log_impl.cc(215)] [16:53:40.112] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+11월 23, 2022 16:53:40.113 [17384:11140:1123/165340.112:ERROR:device_event_log_impl.cc(215)] [16:53:40.112] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+11월 23, 2022 16:54:37.456 [17384:9420:1123/165437.455:ERROR:util.cc(129)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+11월 23, 2022 17:10:35.279 [1824:16476:1123/171035.279:ERROR:device_event_log_impl.cc(215)] [17:10:35.279] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+11월 23, 2022 17:10:35.279 [1824:16476:1123/171035.279:ERROR:device_event_log_impl.cc(215)] [17:10:35.280] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+11월 23, 2022 17:22:24.12 [16760:14736:1123/172224.010:ERROR:device_event_log_impl.cc(215)] [17:22:24.010] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+11월 23, 2022 17:22:24.13 [16760:14736:1123/172224.011:ERROR:device_event_log_impl.cc(215)] [17:22:24.011] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+11월 23, 2022 17:23:21.851 [16760:11496:1123/172321.850:ERROR:util.cc(129)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+11월 23, 2022 18:04:56.55 [18728:15056:1123/180456.055:ERROR:device_event_log_impl.cc(215)] [18:04:56.055] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+11월 23, 2022 18:04:56.56 [18728:15056:1123/180456.055:ERROR:device_event_log_impl.cc(215)] [18:04:56.055] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+11월 23, 2022 18:05:53.260 [18728:14696:1123/180553.259:ERROR:util.cc(129)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+
+11월 24, 2022 09:29:41.765 NEW SESSION
+11월 24, 2022 09:29:41.765 [4292:10932:1124/092941.765:ERROR:device_event_log_impl.cc(215)] [09:29:41.765] Bluetooth: bluetooth_adapter_winrt.cc:1074 Getting Default Adapter failed.
+11월 24, 2022 09:30:38.932 [4292:5172:1124/093038.931:ERROR:util.cc(129)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+11월 24, 2022 09:41:12.232 [2044:13280:1124/094112.232:ERROR:device_event_log_impl.cc(215)] [09:41:12.232] Bluetooth: bluetooth_adapter_winrt.cc:1074 Getting Default Adapter failed.
+11월 24, 2022 09:42:10.207 [2044:6172:1124/094210.206:ERROR:util.cc(129)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+11월 24, 2022 09:45:45.814 [9632:8564:1124/094545.814:ERROR:device_event_log_impl.cc(215)] [09:45:45.814] Bluetooth: bluetooth_adapter_winrt.cc:1074 Getting Default Adapter failed.
+11월 24, 2022 09:46:41.846 [9632:7060:1124/094641.845:ERROR:util.cc(129)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+
+11월 24, 2022 10:07:25.366 NEW SESSION
+11월 24, 2022 10:07:25.366 [13864:11168:1124/100725.365:ERROR:device_event_log_impl.cc(215)] [10:07:25.365] Bluetooth: bluetooth_adapter_winrt.cc:1074 Getting Default Adapter failed.
+11월 24, 2022 10:08:20.714 [13864:9248:1124/100820.713:ERROR:util.cc(129)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+11월 24, 2022 11:09:59.522 [13864:8764:1124/110959.522:ERROR:cert_issuer_source_aia.cc(34)] Error parsing cert retrieved from AIA (as DER):
+11월 24, 2022 11:09:59.522 ERROR: Couldn't read tbsCertificate as SEQUENCE
+11월 24, 2022 11:09:59.523 ERROR: Failed parsing Certificate
+11월 24, 2022 11:09:59.523 
+11월 24, 2022 11:10:00.46 [13864:8764:1124/111000.046:ERROR:cert_verify_proc_builtin.cc(670)] CertVerifyProcBuiltin for www.haesanews.com failed:
+11월 24, 2022 11:10:00.46 ----- Certificate i=2 (CN=AddTrust External CA Root,OU=AddTrust External TTP Network,O=AddTrust AB,C=SE) -----
+11월 24, 2022 11:10:00.46 ERROR: No matching issuer found
+11월 24, 2022 11:10:00.46 
+11월 24, 2022 11:10:00.46 
+11월 24, 2022 11:31:43.556 [13864:11168:1124/113143.556:ERROR:device_event_log_impl.cc(215)] [11:31:43.556] Bluetooth: bluetooth_adapter_winrt.cc:1074 Getting Default Adapter failed.
+11월 24, 2022 12:48:57.807 [9280:11832:1124/124857.807:ERROR:device_event_log_impl.cc(215)] [12:48:57.807] Bluetooth: bluetooth_adapter_winrt.cc:1074 Getting Default Adapter failed.
+11월 24, 2022 12:49:55.818 [9280:3512:1124/124955.817:ERROR:util.cc(129)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+11월 24, 2022 13:06:17.595 [9280:11832:1124/130617.594:ERROR:interface_endpoint_client.cc(690)] Message 0 rejected by interface blink.mojom.WidgetHost
+11월 24, 2022 14:17:57.918 [9280:12096:1124/141757.917:ERROR:connection_factory_impl.cc(426)] Failed to connect to MCS endpoint with error -106
+11월 24, 2022 14:32:09.975 [9280:12096:1124/143209.974:ERROR:connection_factory_impl.cc(426)] Failed to connect to MCS endpoint with error -106
+11월 24, 2022 14:33:10.955 [9280:8964:1124/143310.954:ERROR:cert_verify_proc_builtin.cc(670)] CertVerifyProcBuiltin for api.lunamedia.io failed:
+11월 24, 2022 14:33:10.955 ----- Certificate i=0 (CN=*.lunamedia.io) -----
+11월 24, 2022 14:33:10.955 ERROR: Time is after notAfter
+11월 24, 2022 14:33:10.955 
+11월 24, 2022 14:33:10.955 
+11월 24, 2022 14:55:29.310 [5296:7844:1124/145529.310:ERROR:device_event_log_impl.cc(215)] [14:55:29.310] Bluetooth: bluetooth_adapter_winrt.cc:1074 Getting Default Adapter failed.
+11월 24, 2022 14:56:32.333 [1204:5400:1124/145632.333:ERROR:device_event_log_impl.cc(215)] [14:56:32.333] Bluetooth: bluetooth_adapter_winrt.cc:1074 Getting Default Adapter failed.
+11월 24, 2022 14:57:28.29 [1204:9056:1124/145728.029:ERROR:util.cc(129)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+11월 24, 2022 15:52:52.705 [11356:13768:1124/155252.705:ERROR:device_event_log_impl.cc(215)] [15:52:52.705] Bluetooth: bluetooth_adapter_winrt.cc:1074 Getting Default Adapter failed.
+11월 24, 2022 15:54:04.521 [15032:3664:1124/155404.521:ERROR:device_event_log_impl.cc(215)] [15:54:04.522] Bluetooth: bluetooth_adapter_winrt.cc:1074 Getting Default Adapter failed.
+11월 24, 2022 15:54:57.708 [15032:10452:1124/155457.707:ERROR:util.cc(129)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+11월 24, 2022 17:46:06.271 [2704:15436:1124/174606.270:ERROR:device_event_log_impl.cc(215)] [17:46:06.270] Bluetooth: bluetooth_adapter_winrt.cc:1074 Getting Default Adapter failed.
+11월 24, 2022 17:47:02.980 [2704:13688:1124/174702.979:ERROR:util.cc(129)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+
+11월 25, 2022 09:42:10.04 NEW SESSION
+11월 25, 2022 09:42:10.04 [16136:16600:1125/094210.003:ERROR:device_event_log_impl.cc(215)] [09:42:10.004] Bluetooth: bluetooth_adapter_winrt.cc:1074 Getting Default Adapter failed.
+11월 25, 2022 09:43:07.930 [16136:11964:1125/094307.929:ERROR:util.cc(129)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+11월 25, 2022 09:58:43.797 [1256:3460:1125/095843.797:ERROR:device_event_log_impl.cc(215)] [09:58:43.797] Bluetooth: bluetooth_adapter_winrt.cc:1074 Getting Default Adapter failed.
+11월 25, 2022 09:59:40.675 [1256:2148:1125/095940.674:ERROR:util.cc(129)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+11월 25, 2022 10:00:58.533 [6588:2440:1125/100058.533:ERROR:device_event_log_impl.cc(215)] [10:00:58.533] Bluetooth: bluetooth_adapter_winrt.cc:1074 Getting Default Adapter failed.
+11월 25, 2022 10:01:54.169 [6588:9452:1125/100154.169:ERROR:util.cc(129)] Can't create base directory: C:\Program Files\Google\GoogleUpdater

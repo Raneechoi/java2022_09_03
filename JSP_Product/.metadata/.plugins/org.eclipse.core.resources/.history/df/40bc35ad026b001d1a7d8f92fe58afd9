@@ -1,0 +1,40 @@
+package controller;
+
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import service.ProductService;
+import service.Service;
+
+public class ProductController extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	//   상품 등록, 상품 리스트, 상품 상세, 상품 수정, 상품 삭제
+	//   데이터베이스 연동한 후 컨트롤러에서 메뉴를 분기처리
+	//   컨트롤러에서 서비스 부분으로 값을 전달, 서비스는 다오로 값을 전달
+	private Service svc;
+
+    public ProductController() {
+        // TODO Auto-generated constructor stub
+    	svc=new ProductService();
+    }
+
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+
+	}
+
+	protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(req.getContextPath());
+	}
+
+	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
+
+}

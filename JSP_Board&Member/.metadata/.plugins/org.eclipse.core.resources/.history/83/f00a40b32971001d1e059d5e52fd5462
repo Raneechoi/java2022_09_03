@@ -1,0 +1,21 @@
+package service;
+
+import java.util.List;
+
+import domain.BoardVO;
+
+public interface BoardService {
+
+	List<BoardVO> getlist();
+
+	int register(BoardVO bvo);
+
+	BoardVO selectOne(int bno);
+
+	int update(BoardVO bvo);
+
+	int remove(int bno);
+
+
+
+}

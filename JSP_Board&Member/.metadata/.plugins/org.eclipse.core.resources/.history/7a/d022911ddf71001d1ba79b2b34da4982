@@ -1,0 +1,8 @@
+package domain;
+
+public class PagingVO {
+	
+	private int pageNo;  // 현재 화면에 출력되는 페이지네이션 번호
+	private int qty;     // 한 페이지당 보여줄 게시글 수
+
+}

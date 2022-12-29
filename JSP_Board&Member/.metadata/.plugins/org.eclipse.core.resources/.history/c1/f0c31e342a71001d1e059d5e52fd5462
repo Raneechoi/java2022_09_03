@@ -1,0 +1,153 @@
+package controller;
+
+import java.io.IOException;
+import java.util.List;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import domain.BoardVO;
+import service.BoardService;
+import service.BoardServiceImpl;
+
+
+@WebServlet("/bor/*")
+public class BoardController extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	private static final Logger log = LoggerFactory.getLogger(MemberController.class);
+    private RequestDispatcher rdp;
+    private String destPage; //목적지 주소 기록 변수
+    private int isOK;
+    
+    private BoardService bsv;
+
+    public BoardController() {
+        bsv = new BoardServiceImpl();
+    }
+
+
+	protected void service(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+		req.setCharacterEncoding("utf-8");
+		res.setCharacterEncoding("utf-8");
+		res.setContentType("text/html; charset=utf-8");
+		
+		String uri = req.getRequestURI();
+		String path = uri.substring(uri.lastIndexOf("/")+1);
+		
+		log.info(">>> URI > "+uri);
+		log.info(">>> Path > "+path);
+		
+		switch (path) {
+		case "list":
+			try {
+				log.info("list check 1");
+				List<BoardVO> list = bsv.getlist();
+				req.setAttribute("list", list);
+				destPage = "/board/list.jsp";
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			break;
+			
+		case "register":
+			try {
+				log.info("register check 1");
+				destPage = "/board/register.jsp";
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			break;
+			
+		case "insert":
+			try {
+				String title = req.getParameter("title");
+				String writer = req.getParameter("writer");
+				String content = req.getParameter("content");
+				log.info("insert check 1");
+				isOK = bsv.register(new BoardVO(title, writer, content));
+				log.info(isOK > 0 ? "성공" : "실패");
+				destPage = "/bor/list";
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			break;
+			
+		case "detail":
+			try {
+				int bno = Integer.parseInt(req.getParameter("bno"));
+				int read_count = Integer.parseInt(req.getParameter("read_count"));
+				log.info("detail check 1");
+				isOK = bsv.count(new BoardVO(bno, read_count);
+				BoardVO bvo = bsv.selectOne(bno);
+				log.info("detail check 4");
+				req.setAttribute("bvo", bvo);
+				destPage = "/board/detail.jsp";
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+		case "modify":
+			try {
+				int bno = Integer.parseInt(req.getParameter("bno"));
+				log.info("modify check 1");
+				BoardVO bvo = bsv.selectOne(bno);
+				log.info("modify check 4");
+				req.setAttribute("bvo", bvo);
+				destPage = "/board/modify.jsp";
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			break;
+			
+		case "update":
+			try {
+				int bno = Integer.parseInt(req.getParameter("bno"));
+				String title = req.getParameter("title");
+				String content = req.getParameter("content");
+				log.info("update check 1");
+				isOK = bsv.update(new BoardVO(bno, title, content));
+				log.info(isOK > 0 ? "성공" : "실패");
+				destPage = "/bor/list";
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			break;
+			
+		case "remove":
+			int bno = Integer.parseInt(req.getParameter("bno"));
+			log.info("remove check 1");
+			isOK = bsv.remove(bno);
+			log.info(isOK > 0 ? "성공" : "실패");
+			destPage = "/bor/list";
+			break;
+
+		default:
+			break;
+		}
+		
+		// 목적지 주소 값 세팅
+		rdp = req.getRequestDispatcher(destPage);
+		// 정보 싣고 보내기
+		rdp.forward(req, res);
+	}
+
+
+	protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+		service(req, res);
+	}
+
+
+	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+		service(req, res);
+	}
+
+}

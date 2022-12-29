@@ -1,0 +1,21 @@
+package service;
+
+import domain.MemberVO;
+import repository.MemberDAO;
+import repository.MemberDAOImpl;
+
+public class MemberServiceImpl implements MemberService {
+	
+	private MemberDAO mdao;
+	
+	public MemberServiceImpl() {
+		mdao = new MemberDAOImpl();
+	}
+
+	@Override
+	public MemberVO login(MemberVO mvo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}
